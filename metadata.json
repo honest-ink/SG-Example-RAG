@@ -1,0 +1,8 @@
+{
+  "name": "(deploy) Simpson Grierson RAG",
+  "description": "A professional investment portal for New Zealand featuring a 3D interactive globe and an AI assistant powered by Gemini File Search, tailored for Simpson Grierson.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
