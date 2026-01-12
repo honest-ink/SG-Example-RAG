@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
-import { Send, User, Bot, X, MessageSquare, Terminal, ChevronDown, Calendar, ExternalLink, Mic, Square, Loader2 } from 'lucide-react';
+import { Send, User, X, MessageSquare, Terminal, ChevronDown, Calendar, ExternalLink, Mic, Square, Loader2 } from 'lucide-react';
 import { Message } from '../types';
 import { getGeminiResponse } from '../services/geminiService';
 
@@ -13,9 +13,9 @@ const FALLBACK_CALENDAR_URL = "https://calendar.app.google/o9QcV8uPcdbidcUs66";
 const SPECIAL_CTA = "Schedule a consultation with a Simpson Grierson partner to shape your investment strategy";
 const FALLBACK_PHRASE = "We haven't written about that yet, but our lawyers will know. Book a call with them here:";
 
-// Local SG Logo for the chat bubbles
-const ChatSGLogo = () => (
-  <span className="text-[#50b250] font-black text-xs tracking-tighter leading-none select-none">SG</span>
+// Updated SG Logo to match homepage style but sized for chat bubbles
+const ChatSGLogo = ({ className = "text-xs" }: { className?: string }) => (
+  <span className={`text-[#50b250] font-black tracking-tighter leading-none select-none ${className}`}>SG</span>
 );
 
 const ChatBot = forwardRef<ChatBotHandle>((_, ref) => {
@@ -161,14 +161,7 @@ const ChatBot = forwardRef<ChatBotHandle>((_, ref) => {
                       {m.role === 'user' ? (
                         <User className="w-5 h-5 text-white" />
                       ) : (
-                        <>
-                          {/* Desktop Bot Icon */}
-                          <Bot className="w-5 h-5 text-[#50b250] hidden md:block" />
-                          {/* Mobile SG Logo */}
-                          <div className="md:hidden">
-                            <ChatSGLogo />
-                          </div>
-                        </>
+                        <ChatSGLogo className="text-sm" />
                       )}
                     </div>
                     <div className={`relative p-4 rounded-xl text-[15px] leading-relaxed tracking-wide shadow-sm ${m.role === 'user' ? 'bg-slate-50 text-[#0d311b] rounded-tr-none border border-slate-200' : 'bg-white text-[#0d311b] rounded-tl-none border border-slate-100'}`}>
@@ -225,11 +218,8 @@ const ChatBot = forwardRef<ChatBotHandle>((_, ref) => {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="flex max-w-[85%] items-start gap-4">
-                  <div className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center min-w-[40px] min-h-[40px]">
-                    <Bot className="w-5 h-5 text-[#50b250] hidden md:block" />
-                    <div className="md:hidden flex items-center justify-center w-5 h-5 bg-[#0d311b] rounded-sm">
-                      <ChatSGLogo />
-                    </div>
+                  <div className="p-2.5 rounded-xl bg-[#0d311b] border border-[#0d311b] flex items-center justify-center min-w-[40px] min-h-[40px] shadow-sm">
+                    <ChatSGLogo className="text-sm" />
                   </div>
                   <div className="flex items-center space-x-2 p-4 bg-slate-50 rounded-xl rounded-tl-none border border-slate-200">
                     <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">Accessing Intelligence</span>
