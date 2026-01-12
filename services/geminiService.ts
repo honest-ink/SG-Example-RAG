@@ -7,7 +7,7 @@ const KNOWLEDGE_STORE_ID = "SG-RAG; gen-lang-client-0621477167";
 const FALLBACK_PHRASE = "We haven't written about that yet, but our lawyers will know. Book a call with them here:";
 
 const SYSTEM_INSTRUCTION = `
-You are the Official Simpson Grierson Investment Intelligence AI.
+You are the Official SG Investment Intelligence AI.
 Your primary directive is to provide information regarding investment opportunities, requirements, and legal frameworks in New Zealand using ONLY the Gemini File Search Store: ${KNOWLEDGE_STORE_ID}.
 
 STRICT OPERATIONAL CONSTRAINTS:

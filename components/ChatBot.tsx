@@ -10,7 +10,7 @@ export interface ChatBotHandle {
 
 const CALENDAR_URL = "https://calendar.app.google/Mgzd2ZWjfv6Sz6sK7";
 const FALLBACK_CALENDAR_URL = "https://calendar.app.google/o9QcV8uPcdbidcUs66";
-const SPECIAL_CTA = "Schedule a consultation with a Simpson Grierson partner to shape your investment strategy";
+const SPECIAL_CTA = "Schedule a consultation with an SG partner to shape your investment strategy";
 const FALLBACK_PHRASE = "We haven't written about that yet, but our lawyers will know. Book a call with them here:";
 
 // Updated SG Logo to match homepage style but sized for chat bubbles
@@ -21,7 +21,7 @@ const ChatSGLogo = ({ className = "text-xs" }: { className?: string }) => (
 const ChatBot = forwardRef<ChatBotHandle>((_, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: 'Intelligence Link Established. Accessing Simpson Grierson Knowledge Store. How can I assist your legal or investment inquiry today?' }
+    { role: 'model', text: 'Intelligence Link Established. Accessing SG Knowledge Store. How can I assist your legal or investment inquiry today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -132,7 +132,7 @@ const ChatBot = forwardRef<ChatBotHandle>((_, ref) => {
                 <Terminal className="w-5 h-5 text-[#50b250]" />
               </div>
               <div>
-                <h3 className="font-bold text-sm tracking-[0.05em] uppercase text-[#0d311b]">SIMPSON GRIERSON INTELLIGENCE</h3>
+                <h3 className="font-bold text-sm tracking-[0.05em] uppercase text-[#0d311b]">SG INTELLIGENCE</h3>
                 {/* Verified Node Status - Hidden on mobile */}
                 <div className="hidden md:flex items-center space-x-1.5">
                   <span className="w-1.5 h-1.5 bg-[#50b250] rounded-full animate-pulse" />
@@ -267,7 +267,7 @@ const ChatBot = forwardRef<ChatBotHandle>((_, ref) => {
             </div>
             {/* Removed RAG info on mobile using hidden md:flex */}
             <div className="mt-4 hidden md:flex items-center justify-between text-[10px] text-slate-400 uppercase tracking-wider font-bold">
-              <span>Simpson Grierson RAG Protocol</span>
+              <span>SG RAG Protocol</span>
               <span className="text-[#50b250]/80">SG-NETWORK-INTELLIGENCE</span>
             </div>
           </div>

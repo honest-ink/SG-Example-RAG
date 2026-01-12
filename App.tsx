@@ -127,7 +127,7 @@ const App: React.FC = () => {
             <div className="max-w-2xl">
               <h2 className="text-4xl md:text-5xl font-bold text-[#0d311b] tracking-tight mb-6">Built for Sophisticated Capital.</h2>
               <p className="text-lg text-slate-500 leading-relaxed">
-                Leveraging the Simpson Grierson RAG protocol to deliver precise legal data for international investors.
+                Use the SG Intelligence platform to access precise legal data for international investors
               </p>
             </div>
             <div className="flex space-x-2">
@@ -207,7 +207,7 @@ const App: React.FC = () => {
           
           <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-slate-50 gap-6">
             <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">
-              © 2025 Simpson Grierson | NZ Intelligence Node SG-01
+              © 2025 SG | NZ Intelligence Node SG-01
             </p>
             <div className="flex space-x-12 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-300">
               <span className="flex items-center space-x-2">

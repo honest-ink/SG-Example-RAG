@@ -1,6 +1,6 @@
 {
-  "name": "(deploy) Simpson Grierson RAG",
-  "description": "A professional investment portal for New Zealand featuring a 3D interactive globe and an AI assistant powered by Gemini File Search, tailored for Simpson Grierson.",
+  "name": "(deploy) SG RAG",
+  "description": "A professional investment portal for New Zealand featuring a 3D interactive globe and an AI assistant powered by Gemini File Search, tailored for SG.",
   "requestFramePermissions": [
     "camera",
     "microphone"
