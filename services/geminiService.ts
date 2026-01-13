@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 import { Message } from "../types";
 
@@ -24,6 +23,12 @@ export const getGeminiResponse = async (
   userInput: string, 
   audioData?: { data: string; mimeType: string }
 ): Promise<string> => {
+  
+  // 1. LOG USER INPUT (Trigger log immediately)
+  // If userInput is empty (audio only), we log "[Audio Message]"
+  const userLogText = userInput || "[Audio Message]";
+  await logToN8n("user", userLogText);
+
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
     
@@ -54,10 +59,43 @@ export const getGeminiResponse = async (
       },
     });
 
-    const text = response.text?.trim();
-    return text || FALLBACK_PHRASE;
+    // Calculate the final text (or use fallback if empty)
+    const text = response.text?.trim() || FALLBACK_PHRASE;
+    
+    // 2. LOG SUCCESSFUL RESPONSE
+    await logToN8n("model", text);
+
+    return text;
+
   } catch (error) {
     console.error("Gemini API Error:", error);
+    
+    // 3. LOG ERROR RESPONSE
+    // If it fails, we still want to log that the user got the fallback message
+    await logToN8n("model", FALLBACK_PHRASE);
+    
     return FALLBACK_PHRASE;
   }
 };
+
+// --- HELPER FUNCTION: SENDS LOGS TO N8N ---
+// This sits outside the main function so it is clean and reusable
+async function logToN8n(role: string, text: string) {
+  try {
+    // Your specific n8n URL
+    const webhookUrl = "https://honest-ink.app.n8n.cloud/webhook/SG_chat_log"; 
+    
+    await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ 
+        role: role, 
+        text: text, 
+        date: new Date().toISOString() 
+      })
+    });
+  } catch (error) {
+    // We log the error to the console, but we do NOT stop the app.
+    console.error("Logging to n8n failed", error);
+  }
+}

@@ -127,7 +127,7 @@ const App: React.FC = () => {
             <div className="max-w-2xl">
               <h2 className="text-4xl md:text-5xl font-bold text-[#0d311b] tracking-tight mb-6">Built for Sophisticated Capital.</h2>
               <p className="text-lg text-slate-500 leading-relaxed">
-                Use the SG Intelligence platform to access precise legal data for international investors
+                SG Intelligence is trained on research by New Zealand's best legal team. Read our latest News and Insights here.
               </p>
             </div>
             <div className="flex space-x-2">
@@ -140,33 +140,66 @@ const App: React.FC = () => {
             {[
               { 
                 icon: Shield, 
-                title: 'Risk Mitigation', 
-                desc: 'Deep analysis of the OIO (Overseas Investment Office) framework and local compliance mandates.'
+                showBadgeIcon: false,
+                title: 'Expanding Horizons', 
+                desc: 'Deep analysis of the OIO (Overseas Investment Office) framework and local compliance mandates.',
+                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/ExpandingHorizons.png?raw=true',
+                link: 'https://www.simpsongrierson.com/insights-news/legal-updates/expanding-horizons-2025'
               },
               { 
                 icon: TrendingUp, 
-                title: 'Capital Flow', 
-                desc: 'Optimized pathways for institutional investment in NZ infrastructure and technology.'
+                showBadgeIcon: false,
+                title: 'Energy Overhaul', 
+                desc: "Can government reforms bridge gaps in New Zealand's oil and gas markets by accelerating permitting?",
+                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/Real%20energy.png?raw=true',
+                link: 'https://www.simpsongrierson.com/insights-news/legal-updates/watt-s-up-new-zealand-s-energy-policy-overhaul'
               },
               { 
                 icon: Globe, 
-                title: 'APAC Gateway', 
-                desc: 'Strategic positioning for high-net-worth individuals and corporate entities entering the Oceania region.'
+                showBadgeIcon: false,
+                title: 'Building Liability', 
+                desc: "What New Zealand's new construction reforms mean for developers across the country",
+                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/Building%20Liability%20.png?raw=true',
+                link: 'https://www.simpsongrierson.com/insights-news/legal-updates/building-liability-reform-whats-changing-and-who-pays-when-things-go-wrong'
               }
             ].map((card, i) => (
-              <div key={i} className="group relative p-12 rounded-[2.5rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(13,49,27,0.1)] hover:-translate-y-2 overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                   <card.icon className="w-32 h-32 text-[#0d311b]" />
-                </div>
-                <div className="w-14 h-14 rounded-2xl bg-[#50b250]/10 flex items-center justify-center mb-8 border border-[#50b250]/20 shadow-sm">
-                  <card.icon className="w-7 h-7 text-[#50b250]" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-[#0d311b]">{card.title}</h3>
-                <p className="text-slate-500 text-base leading-relaxed mb-8">
-                  {card.desc}
-                </p>
-                <div className="flex items-center text-[11px] font-black text-[#50b250] uppercase tracking-widest transition-all group-hover:translate-x-2">
-                  Learn More <ChevronRight className="ml-2 w-4 h-4" />
+              <div key={i} className="group relative rounded-[2.5rem] bg-slate-50 border border-slate-100 transition-all duration-500 hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(13,49,27,0.1)] hover:scale-[1.03] overflow-hidden flex flex-col cursor-default">
+                {card.image && (
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      className="w-full h-full object-cover transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-50/20 to-transparent"></div>
+                  </div>
+                )}
+                
+                <div className="p-12 relative flex-1 flex flex-col">
+                  {!card.image && card.icon && (
+                    <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                      <card.icon className="w-32 h-32 text-[#0d311b]" />
+                    </div>
+                  )}
+                  
+                  {card.icon && card.showBadgeIcon !== false && (
+                    <div className="w-14 h-14 rounded-2xl bg-[#50b250]/10 flex items-center justify-center mb-8 border border-[#50b250]/20 shadow-sm">
+                      <card.icon className="w-7 h-7 text-[#50b250]" />
+                    </div>
+                  )}
+                  
+                  <h3 className="text-2xl font-bold mb-4 text-[#0d311b] mt-auto md:mt-0">{card.title}</h3>
+                  <p className="text-slate-500 text-base leading-relaxed mb-8">
+                    {card.desc}
+                  </p>
+                  <a 
+                    href={card.link || '#'}
+                    target={card.link && card.link !== '#' ? "_blank" : undefined}
+                    rel={card.link && card.link !== '#' ? "noopener noreferrer" : undefined}
+                    className="mt-auto inline-flex items-center text-[11px] font-black text-[#50b250] uppercase tracking-widest transition-all group-hover:translate-x-2"
+                  >
+                    Learn More <ChevronRight className="ml-2 w-4 h-4" />
+                  </a>
                 </div>
               </div>
             ))}
