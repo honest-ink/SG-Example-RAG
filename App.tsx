@@ -143,7 +143,7 @@ const App: React.FC = () => {
                 showBadgeIcon: false,
                 title: 'Expanding Horizons', 
                 desc: 'Deep analysis of the OIO (Overseas Investment Office) framework and local compliance mandates.',
-                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/ExpandingHorizons.png?raw=true',
+                image: 'https://raw.githubusercontent.com/honest-ink/SG-Example-RAG/main/ExpandingHorizons.png',
                 link: 'https://www.simpsongrierson.com/insights-news/legal-updates/expanding-horizons-2025'
               },
               { 
