@@ -143,7 +143,7 @@ const App: React.FC = () => {
                 showBadgeIcon: false,
                 title: 'Expanding Horizons', 
                 desc: 'Deep analysis of the OIO (Overseas Investment Office) framework and local compliance mandates.',
-                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/Auckland.png?raw=true',
+                image: 'https://raw.githubusercontent.com/honest-ink/SG-Example-RAG/main/Auckland.png',
                 link: 'https://www.simpsongrierson.com/insights-news/legal-updates/expanding-horizons-2025'
               },
               { 
@@ -151,7 +151,7 @@ const App: React.FC = () => {
                 showBadgeIcon: false,
                 title: 'Energy Overhaul', 
                 desc: "Can government reforms bridge gaps in New Zealand's oil and gas markets by accelerating permitting?",
-                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/Real%20energy.png?raw=true',
+                image: 'https://raw.githubusercontent.com/honest-ink/SG-Example-RAG/main/Real%20energy.pnge',
                 link: 'https://www.simpsongrierson.com/insights-news/legal-updates/watt-s-up-new-zealand-s-energy-policy-overhaul'
               },
               { 
@@ -159,7 +159,7 @@ const App: React.FC = () => {
                 showBadgeIcon: false,
                 title: 'Building Liability', 
                 desc: "What New Zealand's new construction reforms mean for developers across the country",
-                image: 'https://github.com/honest-ink/SG-Example-RAG/blob/main/Building%20Liability%20.png?raw=true',
+                image: 'https://raw.githubusercontent.com/honest-ink/SG-Example-RAG/main/Building%20Liability%20.png',
                 link: 'https://www.simpsongrierson.com/insights-news/legal-updates/building-liability-reform-whats-changing-and-who-pays-when-things-go-wrong'
               }
             ].map((card, i) => (
